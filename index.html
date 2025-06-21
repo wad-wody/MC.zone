@@ -456,7 +456,9 @@
         mccenterDesc: "أداة مهمة لتشغيل النسخ وتثبيت الملفات.",
         footerText: "© 2025 MC ZONE. جميع الحقوق محفوظة.",
         labelLang: "اللغة:",
-        labelMode: "الوضع:"
+        labelMode: "الوضع:",
+        modeToggle: "تبديل الوضع"
+
       },
       en: {
         welcome: "Welcome to MC ZONE",
@@ -476,7 +478,9 @@
         mccenterDesc: "An important tool to run versions and install files.",
         footerText: "© 2025 MC ZONE. All rights reserved.",
         labelLang: "Language:",
-        labelMode: "Mode:"
+        labelMode: "Mode:",
+        modeToggle: "Toggle Mode"
+
       }
     };
 
@@ -486,6 +490,7 @@
       contactDesc.textContent = translations[lang].contactDesc;
       labelLang.textContent = translations[lang].labelLang;
       labelMode.textContent = translations[lang].labelMode;
+      modeToggle.textContent = translations[lang].modeToggle;
 
       document.querySelector('#section-trailer h2').textContent = translations[lang].trailerTitle;
       document.querySelector('#section-trailer p').textContent = translations[lang].trailerDesc;
