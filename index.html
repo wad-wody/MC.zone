@@ -404,7 +404,7 @@
   </footer>
 
   <script>
-    const shareUrl = "https://www.youtube.com/@MCzone_yt";
+    const shareUrl = "https://wad-wody.github.io/MC.zone/";
     const shareBtn = document.getElementById('share-btn');
     const shareMenu = document.getElementById('share-menu');
     const copyLinkBtn = document.getElementById('copy-link-btn');
@@ -423,7 +423,16 @@
       shareMenu.style.display = 'none';
     });
     openShareBtn.addEventListener('click', () => {
-      window.open(shareUrl, '_blank');
+      if (navigator.share) {
+        navigator.share({
+          title: 'MC ZONE',
+          text: 'جرب هذا الموقع الرائع لتحميل ماينكرافت!',
+          url: shareUrl
+        })
+        .catch(err => console.error("مشكلة أثناء المشاركة:", err));
+      } else {
+        window.open(shareUrl, '_blank');
+      }
       shareMenu.style.display = 'none';
     });
 
@@ -457,7 +466,10 @@
         footerText: "© 2025 MC ZONE. جميع الحقوق محفوظة.",
         labelLang: "اللغة:",
         labelMode: "الوضع:",
-        modeToggle: "تبديل الوضع"
+        modeToggle: "تبديل الوضع",
+        share: "🔗 شارك",
+        copy: "نسخ الرابط",
+        open: "نشر الرابط"
 
       },
       en: {
@@ -479,7 +491,10 @@
         footerText: "© 2025 MC ZONE. All rights reserved.",
         labelLang: "Language:",
         labelMode: "Mode:",
-        modeToggle: "Toggle Mode"
+        modeToggle: "Toggle Mode",
+        share: "🔗 Share",
+        copy: "Copy Link",
+        open: "Share Link"
 
       }
     };
@@ -511,6 +526,11 @@
       document.querySelector('#section-mccenter p').textContent = translations[lang].mccenterDesc;
 
       document.querySelector('footer').textContent = translations[lang].footerText;
+      
+      document.getElementById('share-btn').textContent = translations[lang].share;
+      document.getElementById('copy-link-btn').textContent = translations[lang].copy;
+      document.getElementById('open-share-btn').textContent = translations[lang].open;
+
     }
 
     langSelect.addEventListener('change', () => {
@@ -539,7 +559,7 @@
       window.open('https://www.instagram.com/mczone_/', '_blank', 'noopener');
     });
     document.getElementById('btn-gmail').addEventListener('click', () => {
-      window.open('mailto:mczoneyt@gmail.com');
+      window.open('https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSKjfzgDbXcmcFWGGzSPRFpBzFBwnmdbbVkhXXwcJCjrCkzZgQHxxdlFmtSCpbTQjhjpCPdK', '_blank', 'noopener');
     });
   </script>
 </body>
