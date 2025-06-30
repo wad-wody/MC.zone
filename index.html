@@ -378,7 +378,7 @@
     <section class="section" id="section-mccenter">
       <h2>🛠️ تحميل برنامج MC Center</h2>
       <p>أداة مهمة لتشغيل النسخ وتثبيت الملفات.</p>
-      <a class="button" href="https://download1655.mediafire.com/bh28pb7lcuwgJOyXVkP39t9feghJrO7wuVpwFMcWHEzxyyCLive30sJhfIy0emAnL-YgnJd_D5E_s-V9cD1nbyyzyeRasf11RIRes_dueAaUji5aaSNq1c4LQZUKz9S-eqjJO0LbQBRB6oIMsQhsm8dW_pBmZK3sdqmOtIoMgf93Kw/lwbloxzb59xdp7u/M-center.zip" target="_blank" rel="noopener noreferrer">تحميل MC Center</a>
+      <a class="button" href="https://www.mediafire.com/file/lwbloxzb59xdp7u/M-center.zip" target="_blank" rel="noopener noreferrer">تحميل MC Center</a>
     </section>
 
     <!-- قسم تواصل معنا -->
@@ -404,163 +404,334 @@
   </footer>
 
   <script>
-    const shareUrl = "https://wad-wody.github.io/MC.zone/";
-    const shareBtn = document.getElementById('share-btn');
-    const shareMenu = document.getElementById('share-menu');
-    const copyLinkBtn = document.getElementById('copy-link-btn');
-    const openShareBtn = document.getElementById('open-share-btn');
+  const shareUrl = "https://wad-wody.github.io/MC.zone/";
+  const shareBtn = document.getElementById('share-btn');
+  const shareMenu = document.getElementById('share-menu');
+  const copyLinkBtn = document.getElementById('copy-link-btn');
+  const openShareBtn = document.getElementById('open-share-btn');
 
-    shareBtn.addEventListener('click', () => {
-      shareMenu.style.display = (shareMenu.style.display === 'block' ? 'none' : 'block');
-    });
-    document.addEventListener('click', e => {
-      if (!shareBtn.contains(e.target) && !shareMenu.contains(e.target)) {
-        shareMenu.style.display = 'none';
-      }
-    });
-    copyLinkBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(shareUrl).then(() => alert("✅ تم نسخ الرابط!"));
+  shareBtn.addEventListener('click', () => {
+    shareMenu.style.display = (shareMenu.style.display === 'block' ? 'none' : 'block');
+  });
+  document.addEventListener('click', e => {
+    if (!shareBtn.contains(e.target) && !shareMenu.contains(e.target)) {
       shareMenu.style.display = 'none';
-    });
-    openShareBtn.addEventListener('click', () => {
-      if (navigator.share) {
-        navigator.share({
-          title: 'MC ZONE',
-          text: 'جرب هذا الموقع الرائع لتحميل ماينكرافت!',
-          url: shareUrl
-        })
-        .catch(err => console.error("مشكلة أثناء المشاركة:", err));
-      } else {
-        window.open(shareUrl, '_blank');
-      }
-      shareMenu.style.display = 'none';
-    });
-
-    // لغة الصفحة
-    const langSelect = document.getElementById('lang-select');
-    const titleWelcome = document.getElementById('title-welcome');
-    const contactTitle = document.getElementById('contact-title');
-    const contactDesc = document.getElementById('contact-desc');
-    const modeToggle = document.getElementById('mode-toggle');
-    const modeEmoji = document.getElementById('mode-emoji');
-    const labelLang = document.getElementById('label-lang');
-    const labelMode = document.getElementById('label-mode');
-
-    const translations = {
-      ar: {
-        welcome: "مرحباً بك في MC ZONE",
-        contactTitle: "📬 تواصل معنا",
-        contactDesc: "اختر أيقونة للتواصل:",
-        trailerTitle: "🎬 شاهد تريلر ماينكرافت",
-        trailerDesc: "تريلر قصير يعرض لك أجواء اللعبة وإمكانياتها الرائعة.",
-        updateTitle: "✨ تحديث اللعبة الأخير",
-        updateDesc: "الإصدار: 1.21.92 - أحدث الميزات والتحسينات",
-        androidTitle: "📱 تحميل تطبيق MC ZONE android",
-        androidDesc: "احصل على آخر نسخ ماينكرافت للأندرويد مجاناً.",
-        windowsTitle: "🖥️ تحميل ماينكرافت للويندوز 10/11",
-        windowsDesc: "شاهد الشرح الكامل بالفيديو",
-        demoTitle: "🎮 تحميل نسخة Minecraft التجريبية",
-        demoDesc: "هذه النسخة التجريبية مهمة لتحميلها وتجربتها.",
-        mccenterTitle: "🛠️ تحميل برنامج Mcenter",
-        mccenterDesc: "أداة مهمة لتشغيل النسخ وتثبيت الملفات.",
-        footerText: "© 2025 MC ZONE. جميع الحقوق محفوظة.",
-        labelLang: "اللغة:",
-        labelMode: "الوضع:",
-        modeToggle: "تبديل الوضع",
-        share: "🔗 شارك",
-        copy: "نسخ الرابط",
-        open: "نشر الرابط"
-
-      },
-      en: {
-        welcome: "Welcome to MC ZONE",
-        contactTitle: "📬 Contact Us",
-        contactDesc: "Choose an icon to contact:",
-        trailerTitle: "🎬 Watch Minecraft Trailer",
-        trailerDesc: "A short trailer showing the game’s atmosphere and great features.",
-        updateTitle: "✨ Latest Game Update",
-        updateDesc: "Version: 1.21.92 - New features and improvements",
-        androidTitle: "📱 Download MC ZONE App android",
-        androidDesc: "Get the latest Minecraft Android versions for free.",
-        windowsTitle: "🖥️ Download Minecraft for Windows 10/11",
-        windowsDesc: "Watch the full tutorial video",
-        demoTitle: "🎮 Download Minecraft Demo Version",
-        demoDesc: "This demo version is important to download and try.",
-        mccenterTitle: "🛠️ Download Mcenter",
-        mccenterDesc: "An important tool to run versions and install files.",
-        footerText: "© 2025 MC ZONE. All rights reserved.",
-        labelLang: "Language:",
-        labelMode: "Mode:",
-        modeToggle: "Toggle Mode",
-        share: "🔗 Share",
-        copy: "Copy Link",
-        open: "Share Link"
-
-      }
-    };
-
-    function updateTexts(lang) {
-      titleWelcome.textContent = translations[lang].welcome;
-      contactTitle.textContent = translations[lang].contactTitle;
-      contactDesc.textContent = translations[lang].contactDesc;
-      labelLang.textContent = translations[lang].labelLang;
-      labelMode.textContent = translations[lang].labelMode;
-      modeToggle.textContent = translations[lang].modeToggle;
-
-      document.querySelector('#section-trailer h2').textContent = translations[lang].trailerTitle;
-      document.querySelector('#section-trailer p').textContent = translations[lang].trailerDesc;
-
-      document.querySelector('#section-update h2').textContent = translations[lang].updateTitle;
-      document.querySelector('#section-update p').textContent = translations[lang].updateDesc;
-
-      document.querySelector('#section-android h2').textContent = translations[lang].androidTitle;
-      document.querySelector('#section-android p').textContent = translations[lang].androidDesc;
-
-      document.querySelector('#section-windows h2').textContent = translations[lang].windowsTitle;
-      document.querySelector('#section-windows p').textContent = translations[lang].windowsDesc;
-
-      document.querySelector('#section-demo h2').textContent = translations[lang].demoTitle;
-      document.querySelector('#section-demo p').textContent = translations[lang].demoDesc;
-
-      document.querySelector('#section-mccenter h2').textContent = translations[lang].mccenterTitle;
-      document.querySelector('#section-mccenter p').textContent = translations[lang].mccenterDesc;
-
-      document.querySelector('footer').textContent = translations[lang].footerText;
-      
-      document.getElementById('share-btn').textContent = translations[lang].share;
-      document.getElementById('copy-link-btn').textContent = translations[lang].copy;
-      document.getElementById('open-share-btn').textContent = translations[lang].open;
-
     }
+  });
+  copyLinkBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(shareUrl).then(() => alert("✅ تم نسخ الرابط!"));
+    shareMenu.style.display = 'none';
+  });
+  openShareBtn.addEventListener('click', () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'MC ZONE',
+        text: 'جرب هذا الموقع الرائع لتحميل ماينكرافت!',
+        url: shareUrl
+      }).catch(err => console.error("مشكلة أثناء المشاركة:", err));
+    } else {
+      window.open(shareUrl, '_blank');
+    }
+    shareMenu.style.display = 'none';
+  });
 
-    langSelect.addEventListener('change', () => {
-      const lang = langSelect.value;
-      updateTexts(lang);
-    });
+  const langSelect = document.getElementById('lang-select');
+  const titleWelcome = document.getElementById('title-welcome');
+  const contactTitle = document.getElementById('contact-title');
+  const contactDesc = document.getElementById('contact-desc');
+  const modeToggle = document.getElementById('mode-toggle');
+  const modeEmoji = document.getElementById('mode-emoji');
+  const labelLang = document.getElementById('label-lang');
+  const labelMode = document.getElementById('label-mode');
 
-    // تفعيل الوضع الداكن
-    modeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      modeEmoji.textContent = isDark ? '🌚' : '🌞';
-      modeToggle.setAttribute('aria-pressed', isDark.toString());
-    });
+  const translations = {
+    ar: {
+      welcome: "مرحباً بك في MC ZONE",
+      contactTitle: "📬 تواصل معنا",
+      contactDesc: "اختر أيقونة للتواصل:",
+      trailerTitle: "🎬 شاهد تريلر ماينكرافت",
+      trailerDesc: "تريلر قصير يعرض لك أجواء اللعبة وإمكانياتها الرائعة.",
+      updateTitle: "✨ تحديث اللعبة الأخير",
+      updateDesc: "الإصدار: 1.21.92 - أحدث الميزات والتحسينات",
+      androidTitle: "📱 تحميل تطبيق MC ZONE",
+      androidDesc: "احصل على آخر نسخ ماينكرافت للأندرويد مجاناً.",
+      windowsTitle: "🖥️ تحميل ماينكرافت للويندوز 10/11",
+      windowsDesc: "شاهد الشرح الكامل بالفيديو",
+      demoTitle: "🎮 تحميل نسخة Minecraft التجريبية",
+      demoDesc: "هذه النسخة التجريبية مهمة لتحميلها وتجربتها.",
+      mccenterTitle: "🛠️ تحميل برنامج MCenter",
+      mccenterDesc: "أداة مهمة لتشغيل النسخ وتثبيت الملفات.",
+      footerText: "© 2025 MC ZONE. جميع الحقوق محفوظة.",
+      labelLang: "اللغة:",
+      labelMode: "الوضع:",
+      modeToggle: "تبديل الوضع",
+      share: "🔗 شارك",
+      copy: "نسخ الرابط",
+      open: "نشر الرابط",
+      buttons: ["تحميل التطبيق", "تحميل ماينكرافت", "تحميل النسخة التجريبية", "تحميل MCenter"]
+    },
+    en: {
+      welcome: "Welcome to MC ZONE",
+      contactTitle: "📬 Contact Us",
+      contactDesc: "Choose an icon to contact:",
+      trailerTitle: "🎬 Watch Minecraft Trailer",
+      trailerDesc: "A short trailer showing the game’s atmosphere and great features.",
+      updateTitle: "✨ Latest Game Update",
+      updateDesc: "Version: 1.21.92 - New features and improvements",
+      androidTitle: "📱 Download MC ZONE App",
+      androidDesc: "Get the latest Minecraft Android versions for free.",
+      windowsTitle: "🖥️ Download Minecraft for Windows 10/11",
+      windowsDesc: "Watch the full tutorial video",
+      demoTitle: "🎮 Download Minecraft Demo Version",
+      demoDesc: "This demo version is important to download and try.",
+      mccenterTitle: "🛠️ Download MCenter",
+      mccenterDesc: "An important tool to run versions and install files.",
+      footerText: "© 2025 MC ZONE. All rights reserved.",
+      labelLang: "Language:",
+      labelMode: "Mode:",
+      modeToggle: "Toggle Mode",
+      share: "🔗 Share",
+      copy: "Copy Link",
+      open: "Share Link",
+      buttons: ["Download App", "Download Minecraft", "Download Demo", "Download MCenter"]
+    }
+  };
 
-    // عند تحميل الصفحة اختر العربية تلقائياً مع تحديث النصوص
-    window.addEventListener('DOMContentLoaded', () => {
-      updateTexts(langSelect.value);
-    });
+  function updateTexts(lang) {
+    const t = translations[lang];
+    titleWelcome.textContent = t.welcome;
+    contactTitle.textContent = t.contactTitle;
+    contactDesc.textContent = t.contactDesc;
+    labelLang.textContent = t.labelLang;
+    labelMode.textContent = t.labelMode;
+    modeToggle.textContent = t.modeToggle;
+    document.querySelector('#section-trailer h2').textContent = t.trailerTitle;
+    document.querySelector('#section-trailer p').textContent = t.trailerDesc;
+    document.querySelector('#section-update h2').textContent = t.updateTitle;
+    document.querySelector('#section-update p').textContent = t.updateDesc;
+    document.querySelector('#section-android h2').textContent = t.androidTitle;
+    document.querySelector('#section-android p').textContent = t.androidDesc;
+    document.querySelector('#section-android a.button').textContent = t.buttons[0];
+    document.querySelector('#section-windows h2').textContent = t.windowsTitle;
+    document.querySelector('#section-windows p').textContent = t.windowsDesc;
+    document.querySelector('#section-demo h2').textContent = t.demoTitle;
+    document.querySelector('#section-demo p').textContent = t.demoDesc;
+    document.querySelector('#section-demo a.button').textContent = t.buttons[2];
+    document.querySelector('#section-mccenter h2').textContent = t.mccenterTitle;
+    document.querySelector('#section-mccenter p').textContent = t.mccenterDesc;
+    document.querySelector('#section-mccenter a.button').textContent = t.buttons[3];
+    document.querySelector('footer').textContent = t.footerText;
+    document.getElementById('share-btn').textContent = t.share;
+    document.getElementById('copy-link-btn').textContent = t.copy;
+    document.getElementById('open-share-btn').textContent = t.open;
+  }
 
-    // أكواد أزرار تواصل معنا تفتح في تبويب جديد
-    document.getElementById('btn-youtube').addEventListener('click', () => {
-      window.open('https://www.youtube.com/@MCzone_yt', '_blank', 'noopener');
-    });
-    document.getElementById('btn-instagram').addEventListener('click', () => {
-      window.open('https://www.instagram.com/mczone_/', '_blank', 'noopener');
-    });
-    document.getElementById('btn-gmail').addEventListener('click', () => {
-      window.open('https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSKjfzgDbXcmcFWGGzSPRFpBzFBwnmdbbVkhXXwcJCjrCkzZgQHxxdlFmtSCpbTQjhjpCPdK', '_blank', 'noopener');
-    });
-  </script>
+  // حفظ اللغة
+  langSelect.addEventListener('change', () => {
+    const lang = langSelect.value;
+    localStorage.setItem('selectedLang', lang);
+    updateTexts(lang);
+  });
+
+  // الوضع الداكن
+  modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    modeEmoji.textContent = isDark ? '🌚' : '🌞';
+    modeToggle.setAttribute('aria-pressed', isDark.toString());
+    localStorage.setItem('darkMode', isDark ? '1' : '0');
+  });
+
+  // عند تحميل الصفحة
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('selectedLang') || 'ar';
+    const isDarkSaved = localStorage.getItem('darkMode') === '1';
+
+    langSelect.value = savedLang;
+    updateTexts(savedLang);
+
+    if (isDarkSaved) {
+      document.body.classList.add('dark-mode');
+      modeEmoji.textContent = '🌚';
+      modeToggle.setAttribute('aria-pressed', 'true');
+    }
+  });
+
+  // روابط تواصل معنا
+  document.getElementById('btn-youtube').addEventListener('click', () => {
+    window.open('https://www.youtube.com/@MCzone_yt', '_blank', 'noopener');
+  });
+  document.getElementById('btn-instagram').addEventListener('click', () => {
+    window.open('https://www.instagram.com/mczone_/', '_blank', 'noopener');
+  });
+  document.getElementById('btn-gmail').addEventListener('click', () => {
+    window.open('https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSKjfzgDbXcmcFWGGzSPRFpBzFBwnmdbbVkhXXwcJCjrCkzZgQHxxdlFmtSCpbTQjhjpCPdK', '_blank', 'noopener');
+  });
+</script>
+<script>
+  const shareUrl = "https://wad-wody.github.io/MC.zone/";
+  const shareBtn = document.getElementById('share-btn');
+  const shareMenu = document.getElementById('share-menu');
+  const copyLinkBtn = document.getElementById('copy-link-btn');
+  const openShareBtn = document.getElementById('open-share-btn');
+
+  shareBtn.addEventListener('click', () => {
+    shareMenu.style.display = (shareMenu.style.display === 'block' ? 'none' : 'block');
+  });
+  document.addEventListener('click', e => {
+    if (!shareBtn.contains(e.target) && !shareMenu.contains(e.target)) {
+      shareMenu.style.display = 'none';
+    }
+  });
+  copyLinkBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(shareUrl).then(() => alert("✅ تم نسخ الرابط!"));
+    shareMenu.style.display = 'none';
+  });
+  openShareBtn.addEventListener('click', () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'MC ZONE',
+        text: 'جرب هذا الموقع الرائع لتحميل ماينكرافت!',
+        url: shareUrl
+      }).catch(err => console.error("مشكلة أثناء المشاركة:", err));
+    } else {
+      window.open(shareUrl, '_blank');
+    }
+    shareMenu.style.display = 'none';
+  });
+
+  const langSelect = document.getElementById('lang-select');
+  const titleWelcome = document.getElementById('title-welcome');
+  const contactTitle = document.getElementById('contact-title');
+  const contactDesc = document.getElementById('contact-desc');
+  const modeToggle = document.getElementById('mode-toggle');
+  const modeEmoji = document.getElementById('mode-emoji');
+  const labelLang = document.getElementById('label-lang');
+  const labelMode = document.getElementById('label-mode');
+
+  const translations = {
+    ar: {
+      welcome: "مرحباً بك في MC ZONE",
+      contactTitle: "📬 تواصل معنا",
+      contactDesc: "اختر أيقونة للتواصل:",
+      trailerTitle: "🎬 شاهد تريلر ماينكرافت",
+      trailerDesc: "تريلر قصير يعرض لك أجواء اللعبة وإمكانياتها الرائعة.",
+      updateTitle: "✨ تحديث اللعبة الأخير",
+      updateDesc: "الإصدار: 1.21.92 - أحدث الميزات والتحسينات",
+      androidTitle: "📱 تحميل تطبيق MC ZONE",
+      androidDesc: "احصل على آخر نسخ ماينكرافت للأندرويد مجاناً.",
+      windowsTitle: "🖥️ تحميل ماينكرافت للويندوز 10/11",
+      windowsDesc: "شاهد الشرح الكامل بالفيديو",
+      demoTitle: "🎮 تحميل نسخة Minecraft التجريبية",
+      demoDesc: "هذه النسخة التجريبية مهمة لتحميلها وتجربتها.",
+      mccenterTitle: "🛠️ تحميل برنامج MC Center",
+      mccenterDesc: "أداة مهمة لتشغيل النسخ وتثبيت الملفات.",
+      footerText: "© 2025 MC ZONE. جميع الحقوق محفوظة.",
+      labelLang: "اللغة:",
+      labelMode: "الوضع:",
+      modeToggle: "تبديل الوضع",
+      share: "🔗 شارك",
+      copy: "نسخ الرابط",
+      open: "نشر الرابط",
+      buttons: ["تحميل التطبيق", "تحميل ماينكرافت", "تحميل النسخة التجريبية", "تحميل MC Center"]
+    },
+    en: {
+      welcome: "Welcome to MC ZONE",
+      contactTitle: "📬 Contact Us",
+      contactDesc: "Choose an icon to contact:",
+      trailerTitle: "🎬 Watch Minecraft Trailer",
+      trailerDesc: "A short trailer showing the game’s atmosphere and great features.",
+      updateTitle: "✨ Latest Game Update",
+      updateDesc: "Version: 1.21.92 - New features and improvements",
+      androidTitle: "📱 Download MC ZONE App",
+      androidDesc: "Get the latest Minecraft Android versions for free.",
+      windowsTitle: "🖥️ Download Minecraft for Windows 10/11",
+      windowsDesc: "Watch the full tutorial video",
+      demoTitle: "🎮 Download Minecraft Demo Version",
+      demoDesc: "This demo version is important to download and try.",
+      mccenterTitle: "🛠️ Download MC Center",
+      mccenterDesc: "An important tool to run versions and install files.",
+      footerText: "© 2025 MC ZONE. All rights reserved.",
+      labelLang: "Language:",
+      labelMode: "Mode:",
+      modeToggle: "Toggle Mode",
+      share: "🔗 Share",
+      copy: "Copy Link",
+      open: "Share Link",
+      buttons: ["Download App", "Download Minecraft", "Download Demo", "Download MC Center"]
+    }
+  };
+
+  function updateTexts(lang) {
+    const t = translations[lang];
+    titleWelcome.textContent = t.welcome;
+    contactTitle.textContent = t.contactTitle;
+    contactDesc.textContent = t.contactDesc;
+    labelLang.textContent = t.labelLang;
+    labelMode.textContent = t.labelMode;
+    modeToggle.textContent = t.modeToggle;
+    document.querySelector('#section-trailer h2').textContent = t.trailerTitle;
+    document.querySelector('#section-trailer p').textContent = t.trailerDesc;
+    document.querySelector('#section-update h2').textContent = t.updateTitle;
+    document.querySelector('#section-update p').textContent = t.updateDesc;
+    document.querySelector('#section-android h2').textContent = t.androidTitle;
+    document.querySelector('#section-android p').textContent = t.androidDesc;
+    document.querySelector('#section-android a.button').textContent = t.buttons[0];
+    document.querySelector('#section-windows h2').textContent = t.windowsTitle;
+    document.querySelector('#section-windows p').textContent = t.windowsDesc;
+    document.querySelector('#section-demo h2').textContent = t.demoTitle;
+    document.querySelector('#section-demo p').textContent = t.demoDesc;
+    document.querySelector('#section-demo a.button').textContent = t.buttons[2];
+    document.querySelector('#section-mccenter h2').textContent = t.mccenterTitle;
+    document.querySelector('#section-mccenter p').textContent = t.mccenterDesc;
+    document.querySelector('#section-mccenter a.button').textContent = t.buttons[3];
+    document.querySelector('footer').textContent = t.footerText;
+    document.getElementById('share-btn').textContent = t.share;
+    document.getElementById('copy-link-btn').textContent = t.copy;
+    document.getElementById('open-share-btn').textContent = t.open;
+  }
+
+  // حفظ اللغة
+  langSelect.addEventListener('change', () => {
+    const lang = langSelect.value;
+    localStorage.setItem('selectedLang', lang);
+    updateTexts(lang);
+  });
+
+  // الوضع الداكن
+  modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    modeEmoji.textContent = isDark ? '🌚' : '🌞';
+    modeToggle.setAttribute('aria-pressed', isDark.toString());
+    localStorage.setItem('darkMode', isDark ? '1' : '0');
+  });
+
+  // عند تحميل الصفحة
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('selectedLang') || 'ar';
+    const isDarkSaved = localStorage.getItem('darkMode') === '1';
+
+    langSelect.value = savedLang;
+    updateTexts(savedLang);
+
+    if (isDarkSaved) {
+      document.body.classList.add('dark-mode');
+      modeEmoji.textContent = '🌚';
+      modeToggle.setAttribute('aria-pressed', 'true');
+    }
+  });
+
+  // روابط تواصل معنا
+  document.getElementById('btn-youtube').addEventListener('click', () => {
+    window.open('https://www.youtube.com/@MCzone_yt', '_blank', 'noopener');
+  });
+  document.getElementById('btn-instagram').addEventListener('click', () => {
+    window.open('https://www.instagram.com/mczone_/', '_blank', 'noopener');
+  });
+  document.getElementById('btn-gmail').addEventListener('click', () => {
+    window.open('https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSKjfzgDbXcmcFWGGzSPRFpBzFBwnmdbbVkhXXwcJCjrCkzZgQHxxdlFmtSCpbTQjhjpCPdK', '_blank', 'noopener');
+  });
+</script>
 </body>
 </html>
