@@ -333,12 +333,19 @@
     <img class="logo" src="https://i.imgur.com/RZjExPo.png" alt="MC ZONE Logo" title="MC ZONE" />
     <h1 id="title-welcome">مرحباً بك في MC ZONE</h1>
     <div class="options">
-      <span>🌍</span>
-      <label for="lang-select" id="label-lang">اللغة:</label>
-      <select id="lang-select" aria-label="اختيار اللغة">
-        <option value="ar">العربية</option>
-        <option value="en">English</option>
-      </select>
+      <span>🌍</span><label for="lang-select" id="label-lang">اللغة:</label>
+<select id="lang-select" aria-label="اختيار اللغة">
+  <option value="ar">العربية</option>
+  <option value="en">English</option>
+  <option value="fr">Français</option>
+  <option value="ja">日本語</option>
+  <option value="ko">한국어</option>
+  <option value="zh">中文</option>
+  <option value="hi">हिन्दी</option>
+  <option value="es">Español</option>
+  <option value="pt">Português</option>
+</select>
+
       <span id="mode-emoji" aria-live="polite">🌞</span>
       <label for="mode-toggle" id="label-mode">الوضع:</label>
       <button id="mode-toggle" class="mode-toggle" aria-pressed="false" aria-label="تبديل الوضع">تبديل الوضع</button>
@@ -444,58 +451,233 @@
   const labelLang = document.getElementById('label-lang');
   const labelMode = document.getElementById('label-mode');
 
-  const translations = {
-    ar: {
-      welcome: "مرحباً بك في MC ZONE",
-      contactTitle: "📬 تواصل معنا",
-      contactDesc: "اختر أيقونة للتواصل:",
-      trailerTitle: "🎬 شاهد تريلر ماينكرافت",
-      trailerDesc: "تريلر قصير يعرض لك أجواء اللعبة وإمكانياتها الرائعة.",
-      updateTitle: "✨ تحديث اللعبة الأخير",
-      updateDesc: "الإصدار: 1.21.93 - أحدث الميزات والتحسينات",
-      androidTitle: "📱 android تحميل تطبيق MC ZONE",
-      androidDesc: "احصل على آخر نسخ ماينكرافت للأندرويد مجاناً.",
-      windowsTitle: "🖥️ تحميل ماينكرافت للويندوز 10/11",
-      windowsDesc: "شاهد الشرح الكامل بالفيديو",
-      demoTitle: "🎮 تحميل نسخة Minecraft التجريبية",
-      demoDesc: "هذه النسخة التجريبية مهمة لتحميلها وتجربتها.",
-      mccenterTitle: "🛠️ تحميل برنامج MCenter",
-      mccenterDesc: "أداة مهمة لتشغيل النسخ وتثبيت الملفات.",
-      footerText: "© 2025 MC ZONE. جميع الحقوق محفوظة.",
-      labelLang: "اللغة:",
-      labelMode: "الوضع:",
-      modeToggle: "تبديل الوضع",
-      share: "🔗 شارك",
-      copy: "نسخ الرابط",
-      open: "نشر الرابط",
-      buttons: ["تحميل التطبيق", "تحميل ماينكرافت", "تحميل النسخة التجريبية", "تحميل MCenter"]
-    },
-    en: {
-      welcome: "Welcome to MC ZONE",
-      contactTitle: "📬 Contact Us",
-      contactDesc: "Choose an icon to contact:",
-      trailerTitle: "🎬 Watch Minecraft Trailer",
-      trailerDesc: "A short trailer showing the game’s atmosphere and great features.",
-      updateTitle: "✨ Latest Game Update",
-      updateDesc: "Version: 1.21.93 - New features and improvements",
-      androidTitle: "📱 Download MC ZONE App android ",
-      androidDesc: "Get the latest Minecraft Android versions for free.",
-      windowsTitle: "🖥️ Download Minecraft for Windows 10/11",
-      windowsDesc: "Watch the full tutorial video",
-      demoTitle: "🎮 Download Minecraft Demo Version",
-      demoDesc: "This demo version is important to download and try.",
-      mccenterTitle: "🛠️ Download MCenter",
-      mccenterDesc: "An important tool to run versions and install files.",
-      footerText: "© 2025 MC ZONE. All rights reserved.",
-      labelLang: "Language:",
-      labelMode: "Mode:",
-      modeToggle: "Toggle Mode",
-      share: "🔗 Share",
-      copy: "Copy Link",
-      open: "Share Link",
-      buttons: ["Download App", "Download Minecraft", "Download Demo", "Download MCenter"]
-    }
-  };
+const translations = {
+  ar: {
+    welcome: "مرحباً بك في MC ZONE",
+    contactTitle: "📬 تواصل معنا",
+    contactDesc: "اختر أيقونة للتواصل:",
+    trailerTitle: "🎬 شاهد تريلر ماينكرافت",
+    trailerDesc: "تريلر قصير يعرض لك أجواء اللعبة وإمكانياتها الرائعة.",
+    updateTitle: "✨ تحديث اللعبة الأخير",
+    updateDesc: "الإصدار: 1.21.93 - أحدث الميزات والتحسينات",
+    androidTitle: "📱 تحميل تطبيق MC ZONE",
+    androidDesc: "احصل على آخر نسخ ماينكرافت للأندرويد مجاناً.",
+    windowsTitle: "🖥️ تحميل ماينكرافت للويندوز 10/11",
+    windowsDesc: "شاهد الشرح الكامل بالفيديو",
+    demoTitle: "🎮 تحميل نسخة Minecraft التجريبية",
+    demoDesc: "هذه النسخة التجريبية مهمة لتحميلها وتجربتها.",
+    mccenterTitle: "🛠️ تحميل برنامج MCenter",
+    mccenterDesc: "أداة مهمة لتشغيل النسخ وتثبيت الملفات.",
+    footerText: "© 2025 MC ZONE. جميع الحقوق محفوظة.",
+    labelLang: "اللغة:",
+    labelMode: "الوضع:",
+    modeToggle: "تبديل الوضع",
+    share: "🔗 شارك",
+    copy: "نسخ الرابط",
+    open: "نشر الرابط",
+    buttons: ["تحميل التطبيق", "تحميل ماينكرافت", "تحميل النسخة التجريبية", "تحميل MCenter"]
+  },
+  en: {
+    welcome: "Welcome to MC ZONE",
+    contactTitle: "📬 Contact Us",
+    contactDesc: "Choose an icon to contact:",
+    trailerTitle: "🎬 Watch Minecraft Trailer",
+    trailerDesc: "A short trailer showing the game’s atmosphere and great features.",
+    updateTitle: "✨ Latest Game Update",
+    updateDesc: "Version: 1.21.93 - New features and improvements",
+    androidTitle: "📱 Download MC ZONE App",
+    androidDesc: "Get the latest Minecraft Android versions for free.",
+    windowsTitle: "🖥️ Download Minecraft for Windows 10/11",
+    windowsDesc: "Watch the full tutorial video",
+    demoTitle: "🎮 Download Minecraft Demo Version",
+    demoDesc: "This demo version is important to download and try.",
+    mccenterTitle: "🛠️ Download MCenter",
+    mccenterDesc: "An important tool to run versions and install files.",
+    footerText: "© 2025 MC ZONE. All rights reserved.",
+    labelLang: "Language:",
+    labelMode: "Mode:",
+    modeToggle: "Toggle Mode",
+    share: "🔗 Share",
+    copy: "Copy Link",
+    open: "Share Link",
+    buttons: ["Download App", "Download Minecraft", "Download Demo", "Download MCenter"]
+  },
+  fr: {
+    welcome: "Bienvenue sur MC ZONE",
+    contactTitle: "📬 Contactez-nous",
+    contactDesc: "Choisissez une icône pour contacter :",
+    trailerTitle: "🎬 Regardez la bande-annonce de Minecraft",
+    trailerDesc: "Une courte bande-annonce montrant l’atmosphère et les fonctionnalités du jeu.",
+    updateTitle: "✨ Dernière mise à jour du jeu",
+    updateDesc: "Version : 1.21.93 - Nouvelles fonctionnalités et améliorations",
+    androidTitle: "📱 Télécharger l’application MC ZONE",
+    androidDesc: "Obtenez les dernières versions Minecraft Android gratuitement.",
+    windowsTitle: "🖥️ Télécharger Minecraft pour Windows 10/11",
+    windowsDesc: "Regardez le tutoriel vidéo complet",
+    demoTitle: "🎮 Télécharger la version démo de Minecraft",
+    demoDesc: "Cette version démo est importante à télécharger et à essayer.",
+    mccenterTitle: "🛠️ Télécharger MCenter",
+    mccenterDesc: "Un outil important pour exécuter les versions et installer les fichiers.",
+    footerText: "© 2025 MC ZONE. Tous droits réservés.",
+    labelLang: "Langue :",
+    labelMode: "Mode :",
+    modeToggle: "Basculer le mode",
+    share: "🔗 Partager",
+    copy: "Copier le lien",
+    open: "Partager le lien",
+    buttons: ["Télécharger l’app", "Télécharger Minecraft", "Télécharger la démo", "Télécharger MCenter"]
+  },
+  ja: {
+    welcome: "MC ZONEへようこそ",
+    contactTitle: "📬 お問い合わせ",
+    contactDesc: "連絡するアイコンを選択してください：",
+    trailerTitle: "🎬 マインクラフトのトレーラーを見る",
+    trailerDesc: "ゲームの雰囲気と素晴らしい機能を紹介する短いトレーラー。",
+    updateTitle: "✨ 最新ゲームアップデート",
+    updateDesc: "バージョン: 1.21.93 - 新機能と改善点",
+    androidTitle: "📱 MC ZONEアプリをダウンロード",
+    androidDesc: "最新のMinecraft Androidバージョンを無料で入手。",
+    windowsTitle: "🖥️ Windows 10/11用Minecraftをダウンロード",
+    windowsDesc: "完全なチュートリアルビデオを見る",
+    demoTitle: "🎮 Minecraftのデモ版をダウンロード",
+    demoDesc: "このデモ版はダウンロードして試すことが重要です。",
+    mccenterTitle: "🛠️ MCenterをダウンロード",
+    mccenterDesc: "バージョンの実行とファイルのインストールに重要なツール。",
+    footerText: "© 2025 MC ZONE. 全著作権所有。",
+    labelLang: "言語：",
+    labelMode: "モード：",
+    modeToggle: "モード切替",
+    share: "🔗 共有",
+    copy: "リンクをコピー",
+    open: "リンクを共有",
+    buttons: ["アプリをダウンロード", "Minecraftをダウンロード", "デモをダウンロード", "MCenterをダウンロード"]
+  },
+  ko: {
+    welcome: "MC ZONE에 오신 것을 환영합니다",
+    contactTitle: "📬 문의하기",
+    contactDesc: "연락할 아이콘을 선택하세요:",
+    trailerTitle: "🎬 마인크래프트 트레일러 보기",
+    trailerDesc: "게임 분위기와 멋진 기능을 보여주는 짧은 트레일러.",
+    updateTitle: "✨ 최신 게임 업데이트",
+    updateDesc: "버전: 1.21.93 - 새로운 기능 및 개선 사항",
+    androidTitle: "📱 MC ZONE 앱 다운로드",
+    androidDesc: "최신 Minecraft Android 버전을 무료로 받으세요.",
+    windowsTitle: "🖥️ Windows 10/11용 Minecraft 다운로드",
+    windowsDesc: "전체 튜토리얼 비디오 시청",
+    demoTitle: "🎮 Minecraft 데모 버전 다운로드",
+    demoDesc: "이 데모 버전은 다운로드하고 시도하는 것이 중요합니다.",
+    mccenterTitle: "🛠️ MCenter 다운로드",
+    mccenterDesc: "버전을 실행하고 파일을 설치하는 데 중요한 도구입니다.",
+    footerText: "© 2025 MC ZONE. 모든 권리 보유.",
+    labelLang: "언어:",
+    labelMode: "모드:",
+    modeToggle: "모드 전환",
+    share: "🔗 공유",
+    copy: "링크 복사",
+    open: "링크 공유",
+    buttons: ["앱 다운로드", "Minecraft 다운로드", "데모 다운로드", "MCenter 다운로드"]
+  },
+  zh: {
+    welcome: "欢迎来到 MC ZONE",
+    contactTitle: "📬 联系我们",
+    contactDesc: "选择一个图标进行联系：",
+    trailerTitle: "🎬 观看 Minecraft 预告片",
+    trailerDesc: "展示游戏氛围和精彩功能的短片预告。",
+    updateTitle: "✨ 最新游戏更新",
+    updateDesc: "版本：1.21.93 - 新功能和改进",
+    androidTitle: "📱 下载 MC ZONE 应用",
+    androidDesc: "免费下载最新的 Minecraft 安卓版本。",
+    windowsTitle: "🖥️ 下载适用于 Windows 10/11 的 Minecraft",
+    windowsDesc: "观看完整教程视频",
+    demoTitle: "🎮 下载 Minecraft 试玩版",
+    demoDesc: "此试玩版重要，建议下载试用。",
+    mccenterTitle: "🛠️ 下载 MCenter",
+    mccenterDesc: "运行版本和安装文件的重要工具。",
+    footerText: "© 2025 MC ZONE。版权所有。",
+    labelLang: "语言：",
+    labelMode: "模式：",
+    modeToggle: "切换模式",
+    share: "🔗 分享",
+    copy: "复制链接",
+    open: "分享链接",
+    buttons: ["下载应用", "下载 Minecraft", "下载试玩版", "下载 MCenter"]
+  },
+  hi: {
+    welcome: "MC ZONE में आपका स्वागत है",
+    contactTitle: "📬 संपर्क करें",
+    contactDesc: "संपर्क करने के लिए एक आइकन चुनें:",
+    trailerTitle: "🎬 Minecraft ट्रेलर देखें",
+    trailerDesc: "खेल के माहौल और शानदार सुविधाओं को दिखाने वाला एक छोटा ट्रेलर।",
+    updateTitle: "✨ नवीनतम गेम अपडेट",
+    updateDesc: "संस्करण: 1.21.93 - नई सुविधाएँ और सुधार",
+    androidTitle: "📱 MC ZONE ऐप डाउनलोड करें",
+    androidDesc: "नवीनतम Minecraft Android संस्करण मुफ्त में प्राप्त करें।",
+    windowsTitle: "🖥️ Windows 10/11 के लिए Minecraft डाउनलोड करें",
+    windowsDesc: "पूर्ण ट्यूटोरियल वीडियो देखें",
+    demoTitle: "🎮 Minecraft डेमो संस्करण डाउनलोड करें",
+    demoDesc: "इस डेमो संस्करण को डाउनलोड करना और आज़माना महत्वपूर्ण है।",
+    mccenterTitle: "🛠️ MCenter डाउनलोड करें",
+    mccenterDesc: "संस्करण चलाने और फाइलें स्थापित करने के लिए एक महत्वपूर्ण उपकरण।",
+    footerText: "© 2025 MC ZONE। सर्वाधिकार सुरक्षित।",
+    labelLang: "भाषा:",
+    labelMode: "मोड:",
+    modeToggle: "मोड टॉगल करें",
+    share: "🔗 साझा करें",
+    copy: "लिंक कॉपी करें",
+    open: "लिंक साझा करें",
+    buttons: ["ऐप डाउनलोड करें", "Minecraft डाउनलोड करें", "डेमो डाउनलोड करें", "MCenter डाउनलोड करें"]
+  },
+  es: {
+    welcome: "Bienvenido a MC ZONE",
+    contactTitle: "📬 Contáctanos",
+    contactDesc: "Elige un icono para contactar:",
+    trailerTitle: "🎬 Mira el tráiler de Minecraft",
+    trailerDesc: "Un tráiler corto que muestra la atmósfera y las excelentes características del juego.",
+    updateTitle: "✨ Última actualización del juego",
+    updateDesc: "Versión: 1.21.93 - Nuevas características y mejoras",
+    androidTitle: "📱 Descargar la aplicación MC ZONE",
+    androidDesc: "Obtén las últimas versiones de Minecraft para Android gratis.",
+    windowsTitle: "🖥️ Descargar Minecraft para Windows 10/11",
+    windowsDesc: "Mira el video tutorial completo",
+    demoTitle: "🎮 Descargar la versión demo de Minecraft",
+    demoDesc: "Esta versión demo es importante para descargar y probar.",
+    mccenterTitle: "🛠️ Descargar MCenter",
+    mccenterDesc: "Una herramienta importante para ejecutar versiones e instalar archivos.",
+    footerText: "© 2025 MC ZONE. Todos los derechos reservados.",
+    labelLang: "Idioma:",
+    labelMode: "Modo:",
+    modeToggle: "Cambiar modo",
+    share: "🔗 Compartir",
+    copy: "Copiar enlace",
+    open: "Compartir enlace",
+    buttons: ["Descargar app", "Descargar Minecraft", "Descargar demo", "Descargar MCenter"]
+  },
+  pt: {
+    welcome: "Bem-vindo ao MC ZONE",
+    contactTitle: "📬 Contate-nos",
+    contactDesc: "Escolha um ícone para contato:",
+    trailerTitle: "🎬 Assista ao trailer do Minecraft",
+    trailerDesc: "Um trailer curto mostrando a atmosfera e os ótimos recursos do jogo.",
+    updateTitle: "✨ Última atualização do jogo",
+    updateDesc: "Versão: 1.21.93 - Novos recursos e melhorias",
+    androidTitle: "📱 Baixar aplicativo MC ZONE",
+    androidDesc: "Obtenha as últimas versões do Minecraft para Android gratuitamente.",
+    windowsTitle: "🖥️ Baixar Minecraft para Windows 10/11",
+    windowsDesc: "Assista ao vídeo tutorial completo",
+    demoTitle: "🎮 Baixar versão demo do Minecraft",
+    demoDesc: "Esta versão demo é importante para baixar e experimentar.",
+    mccenterTitle: "🛠️ Baixar MCenter",
+    mccenterDesc: "Uma ferramenta importante para executar versões e instalar arquivos.",
+    footerText: "© 2025 MC ZONE. Todos os direitos reservados.",
+    labelLang: "Idioma:",
+    labelMode: "Modo:",
+    modeToggle: "Alternar modo",
+    share: "🔗 Compartilhar",
+    copy: "Copiar link",
+    open: "Compartilhar link",
+    buttons: ["Baixar app", "Baixar Minecraft", "Baixar demo", "Baixar MCenter"]
+  }
+};
 
   function updateTexts(lang) {
     const t = translations[lang];
@@ -609,59 +791,7 @@
   const labelLang = document.getElementById('label-lang');
   const labelMode = document.getElementById('label-mode');
 
-  const translations = {
-    ar: {
-      welcome: "مرحباً بك في MC ZONE",
-      contactTitle: "📬 تواصل معنا",
-      contactDesc: "اختر أيقونة للتواصل:",
-      trailerTitle: "🎬 شاهد تريلر ماينكرافت",
-      trailerDesc: "تريلر قصير يعرض لك أجواء اللعبة وإمكانياتها الرائعة.",
-      updateTitle: "✨ تحديث اللعبة الأخير",
-      updateDesc: "الإصدار: 1.21.92 - أحدث الميزات والتحسينات",
-      androidTitle: "📱 تحميل تطبيق MC ZONE",
-      androidDesc: "احصل على آخر نسخ ماينكرافت للأندرويد مجاناً.",
-      windowsTitle: "🖥️ تحميل ماينكرافت للويندوز 10/11",
-      windowsDesc: "شاهد الشرح الكامل بالفيديو",
-      demoTitle: "🎮 تحميل نسخة Minecraft التجريبية",
-      demoDesc: "هذه النسخة التجريبية مهمة لتحميلها وتجربتها.",
-      mccenterTitle: "🛠️ تحميل برنامج MC Center",
-      mccenterDesc: "أداة مهمة لتشغيل النسخ وتثبيت الملفات.",
-      footerText: "© 2025 MC ZONE. جميع الحقوق محفوظة.",
-      labelLang: "اللغة:",
-      labelMode: "الوضع:",
-      modeToggle: "تبديل الوضع",
-      share: "🔗 شارك",
-      copy: "نسخ الرابط",
-      open: "نشر الرابط",
-      buttons: ["تحميل التطبيق", "تحميل ماينكرافت", "تحميل النسخة التجريبية", "تحميل MC Center"]
-    },
-    en: {
-      welcome: "Welcome to MC ZONE",
-      contactTitle: "📬 Contact Us",
-      contactDesc: "Choose an icon to contact:",
-      trailerTitle: "🎬 Watch Minecraft Trailer",
-      trailerDesc: "A short trailer showing the game’s atmosphere and great features.",
-      updateTitle: "✨ Latest Game Update",
-      updateDesc: "Version: 1.21.92 - New features and improvements",
-      androidTitle: "📱 Download MC ZONE App",
-      androidDesc: "Get the latest Minecraft Android versions for free.",
-      windowsTitle: "🖥️ Download Minecraft for Windows 10/11",
-      windowsDesc: "Watch the full tutorial video",
-      demoTitle: "🎮 Download Minecraft Demo Version",
-      demoDesc: "This demo version is important to download and try.",
-      mccenterTitle: "🛠️ Download MC Center",
-      mccenterDesc: "An important tool to run versions and install files.",
-      footerText: "© 2025 MC ZONE. All rights reserved.",
-      labelLang: "Language:",
-      labelMode: "Mode:",
-      modeToggle: "Toggle Mode",
-      share: "🔗 Share",
-      copy: "Copy Link",
-      open: "Share Link",
-      buttons: ["Download App", "Download Minecraft", "Download Demo", "Download MC Center"]
-    }
-  };
-
+  
   function updateTexts(lang) {
     const t = translations[lang];
     titleWelcome.textContent = t.welcome;
